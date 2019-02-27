@@ -5,7 +5,7 @@ import Main from "./Main";
 
 function mapStateToProps(state) {
   return {
-    day: state.day,
+    days: state.days,
     exercises: state.exercises
   };
 }
