@@ -23,3 +23,10 @@ export function deleteDay(index) {
     index
   };
 }
+
+export function addExercise(name) {
+  return {
+    type: "ADD_EXERCISE",
+    name
+  };
+}

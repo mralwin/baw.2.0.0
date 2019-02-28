@@ -11,5 +11,4 @@ export default styled(Modal)`
   border: 2px solid black;
   outline: none;
   border-radius: 10px;
-  background-color: grey;
 `;

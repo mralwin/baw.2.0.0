@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
-class Modal extends Component {
+class AddExercise extends Component {
   render() {
     return (
       <div>
-        <h2>I AM THE SELECTOR DEFAULT</h2>
+        <h2>I AM add exercise</h2>
       </div>
     );
   }
 }
 
-export default Modal;
+export default AddExercise;

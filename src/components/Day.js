@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Button from "./presentational/Button";
-import SelectorDefault from "./SelectorDefault";
+import AddExercise from "./AddExercise";
+import EditExercise from "./EditExercise";
 import WrapperModal from "./presentational/WrapperModal";
-import Modal from "react-modal";
 
 class Day extends Component {
   constructor() {
@@ -22,22 +22,30 @@ class Day extends Component {
   handleCloseModal() {
     this.setState({ showModal: false });
   }
+
+  handleChange = event => {
+    this.props.editDay(this.props.i, event.currentTarget.value);
+  };
+
   render() {
     return (
       <div>
-        <h2>I AM {this.props.days[this.props.i].name}</h2>
         <input
           type="text"
           name="name"
           onChange={this.handleChange}
-          value={this.props.days[this.props.i].name}
+          placeholder="Day Name"
         />
+
+        {this.props.days[this.props.i].exercises.map((exercise, i) => (
+          <EditExercise {...this.props} key={i} i={i} exercise={exercise} />
+        ))}
 
         <Button inner onClick={this.handleOpenModal}>
           Add Exercise
         </Button>
         <WrapperModal isOpen={this.state.showModal}>
-          <SelectorDefault />
+          <AddExercise />
           <Button onClick={this.handleCloseModal}>Close</Button>
         </WrapperModal>
 

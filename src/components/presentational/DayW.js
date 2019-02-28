@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export default styled.div`
-  /* This renders the buttons above... Edit me! */
   text-align: center;
   display: inline-block;
   border-radius: 10px;
@@ -11,4 +10,9 @@ export default styled.div`
   background: transparent;
   color: black;
   border: 2px solid black;
+  input {
+    text-align: center;
+    border: 2px solidblack;
+    border-radius: 4px;
+  }
 `;

@@ -9,7 +9,6 @@ function days(state = [], action) {
         }
       ];
     case "EDIT_DAY":
-      //const i = action.index;
       return [
         ...state.slice(0, action.index),
         { ...state[action.index], name: action.name },
