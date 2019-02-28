@@ -1,8 +1,14 @@
 import React, { Component } from "react";
+import Selector from "./Selector";
 
 class Main extends Component {
   render() {
-    return <h2>IT BEGINS!</h2>;
+    return (
+      <div>
+        <h2>I AM MAIN</h2>
+        <Selector {...this.props} />
+      </div>
+    );
   }
 }
 

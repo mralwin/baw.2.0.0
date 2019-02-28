@@ -5,8 +5,20 @@ function days(state = [], action) {
         ...state,
         {
           exercises: [],
-          name: action.name
+          name: "day"
         }
+      ];
+    case "EDIT_DAY":
+      //const i = action.index;
+      return [
+        ...state.slice(0, action.index),
+        { ...state[action.index], name: action.name },
+        ...state.slice(action.index + 1)
+      ];
+    case "DELETE_DAY":
+      return [
+        ...state.slice(0, action.index),
+        ...state.slice(action.index + 1)
       ];
     default:
       return state;
