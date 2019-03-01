@@ -1,4 +1,3 @@
-// add day
 export function addDay(name) {
   return {
     type: "ADD_DAY",
@@ -6,27 +5,36 @@ export function addDay(name) {
   };
 }
 
-// edit day
-export function editDay(index, name) {
+export function editDay(day, name) {
   return {
     type: "EDIT_DAY",
-    index,
+    day,
     name
   };
 }
 
-// remove day
-
-export function deleteDay(index) {
+export function deleteDay(day) {
   return {
     type: "DELETE_DAY",
-    index
+    day
   };
 }
 
 export function addExercise(name) {
   return {
     type: "ADD_EXERCISE",
+    name
+  };
+}
+
+export function addExerciseToAll(dayId, name) {
+  // Generate a unique ID for this comment
+  const exerciseId = Date.now();
+
+  return {
+    type: "ADD_EXERCISE_TO_ALL",
+    dayId,
+    exerciseId,
     name
   };
 }

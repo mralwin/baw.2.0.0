@@ -4,16 +4,20 @@ import DayW from "./presentational/DayW";
 import Button from "./presentational/Button";
 
 class Editor extends Component {
+  handleClick = () => {
+    const gName = Date.now();
+    this.props.addDay(gName);
+  };
   render() {
     return (
       <div>
         <h2>I AM THE EDITOR</h2>
-        {this.props.days.map((day, i) => (
+        {Object.keys(this.props.days).map((day, i) => (
           <DayW key={i}>
-            <Day {...this.props} key={i} i={i} post={day} />
+            <Day {...this.props} key={i} i={i} day={day} />
           </DayW>
         ))}
-        <Button onClick={this.props.addDay}>Add Day</Button>
+        <Button onClick={this.handleClick}>Add Day</Button>
       </div>
     );
   }

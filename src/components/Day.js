@@ -24,7 +24,11 @@ class Day extends Component {
   }
 
   handleChange = event => {
-    this.props.editDay(this.props.i, event.currentTarget.value);
+    this.props.editDay(this.props.day, event.currentTarget.value);
+  };
+
+  handleClick = () => {
+    this.props.deleteDay(this.props.day);
   };
 
   render() {
@@ -35,21 +39,19 @@ class Day extends Component {
           name="name"
           onChange={this.handleChange}
           placeholder="Day Name"
+          maxLength="14"
         />
-
-        {this.props.days[this.props.i].exercises.map((exercise, i) => (
-          <EditExercise {...this.props} key={i} i={i} exercise={exercise} />
-        ))}
 
         <Button inner onClick={this.handleOpenModal}>
           Add Exercise
         </Button>
+
         <WrapperModal isOpen={this.state.showModal}>
-          <AddExercise />
+          <AddExercise {...this.props} />
           <Button onClick={this.handleCloseModal}>Close</Button>
         </WrapperModal>
 
-        <Button inner onClick={this.props.deleteDay.bind(null, this.props.i)}>
+        <Button inner onClick={this.handleClick}>
           Delete Day
         </Button>
       </div>

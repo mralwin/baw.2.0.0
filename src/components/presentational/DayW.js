@@ -11,6 +11,9 @@ export default styled.div`
   color: black;
   border: 2px solid black;
   input {
+    font-size: large;
+    height: 30px;
+    width: 150px;
     text-align: center;
     border: 2px solidblack;
     border-radius: 4px;

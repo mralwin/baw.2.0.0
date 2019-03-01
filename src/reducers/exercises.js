@@ -7,6 +7,13 @@ function exercises(state = [], action) {
           name: action.name
         }
       ];
+    case "ADD_EXERCISE_TO_ALL":
+      return {
+        ...state,
+        [action.exerciseId]: {
+          name: action.name
+        }
+      };
     default:
       return state;
   }
