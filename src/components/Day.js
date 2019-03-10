@@ -42,6 +42,16 @@ class Day extends Component {
           maxLength="14"
         />
 
+        {this.props.days[this.props.day].exercises.map((exercise, i) => (
+          <EditExercise
+            {...this.props}
+            key={i}
+            i={i}
+            exercise={exercise}
+            day={this.props.day}
+          />
+        ))}
+
         <Button inner onClick={this.handleOpenModal}>
           Add Exercise
         </Button>

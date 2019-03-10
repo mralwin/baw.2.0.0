@@ -9,27 +9,20 @@ function days(state = [], action) {
         }
       };
     case "EDIT_DAY":
+      const day1 = state[action.day];
       return {
         ...state,
         [action.day]: {
-          exercises: [],
+          ...day1,
           name: action.name
         }
       };
     case "DELETE_DAY":
-      console.log(action.day);
-      const stateObj = { ...state };
-      return Object.keys(stateObj)
-        .filter(key => key !== action.day)
-        .reduce((result, current) => {
-          result[current] = stateObj[current];
-          return result;
-        }, {});
+      let copy = Object.assign({}, state);
+      delete copy[action.day];
+      return copy;
     case "ADD_EXERCISE_TO_ALL":
       // Look up the correct day, to simplify the rest of the code
-      // const day = state[action.dayId];
-      const AEA = { ...state };
-      console.log(AEA[action.dayId].exercises);
       const day = state[action.dayId];
       return {
         ...state,
@@ -37,6 +30,29 @@ function days(state = [], action) {
         [action.dayId]: {
           ...day,
           exercises: day.exercises.concat(action.exerciseId)
+        }
+      };
+    case "ADD_EXERCISE":
+      // Look up the correct day, to simplify the rest of the code
+      const day3 = state[action.dayId];
+      return {
+        ...state,
+        // Update our day object with a new "exercises" array
+        [action.dayId]: {
+          ...day3,
+          exercises: day3.exercises.concat(action.eId)
+        }
+      };
+    case "REMOVE_FROM_DAY":
+      const day2 = state[action.dayId];
+      const filtered = day2.exercises.filter(
+        item => item !== action.exerciseId
+      );
+      return {
+        ...state,
+        [action.dayId]: {
+          ...day2,
+          exercises: filtered
         }
       };
     default:

@@ -20,21 +20,35 @@ export function deleteDay(day) {
   };
 }
 
-export function addExercise(name) {
+export function addExercise(dayId, eId) {
   return {
     type: "ADD_EXERCISE",
-    name
+    dayId,
+    eId
   };
 }
 
 export function addExerciseToAll(dayId, name) {
-  // Generate a unique ID for this comment
   const exerciseId = Date.now();
-
   return {
     type: "ADD_EXERCISE_TO_ALL",
     dayId,
     exerciseId,
     name
+  };
+}
+
+export function removeFromDay(dayId, exerciseId) {
+  return {
+    type: "REMOVE_FROM_DAY",
+    dayId,
+    exerciseId
+  };
+}
+
+export function deleteExercise(exercise) {
+  return {
+    type: "DELETE_EXERCISE",
+    exercise
   };
 }

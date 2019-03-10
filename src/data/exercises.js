@@ -1,18 +1,23 @@
 const exercises = [
   {
-    name: "squat"
+    name: "squat",
+    count: 2
   },
   {
-    name: "deadlift"
+    name: "deadlift",
+    count: 1
   },
   {
-    name: "bench"
+    name: "bench",
+    count: 1
   },
   {
-    name: "ohp"
+    name: "ohp",
+    count: 1
   },
   {
-    name: "row"
+    name: "row",
+    count: 1
   }
 ];
 
