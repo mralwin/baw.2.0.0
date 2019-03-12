@@ -1,28 +1,25 @@
 function exercises(state = [], action) {
   switch (action.type) {
     case "ADD_EXERCISE":
-      // Look up the correct day, to simplify the rest of the code
       const exercises2 = state[action.eId];
       const newCount = exercises2.count + 1;
       return {
         ...state,
-        // Update our day object with a new "exercises" array
         [action.eId]: {
           ...exercises2,
-          // need to work on below
           count: newCount
-          // need to work on above
         }
       };
     case "DELETE_EXERCISE":
-      let copy = Object.assign({}, state); // assuming you use Object.assign() polyfill!
-      delete copy[action.exercise]; // shallowly mutating a shallow copy is fine
+      let copy = Object.assign({}, state);
+      delete copy[action.exercise];
       return copy;
     case "ADD_EXERCISE_TO_ALL":
       return {
         ...state,
         [action.exerciseId]: {
-          name: action.name
+          name: action.name,
+          sets: action.sets
         }
       };
     case "REMOVE_FROM_DAY":
